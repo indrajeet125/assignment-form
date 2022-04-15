@@ -108,7 +108,7 @@ class Form extends Component {
     <input type="radio" name="gender" value="mr" id="male" />
     <label htmlFor="male">Male</label>
     <input type="radio" value="miss" name="gender" id="female" />
-    <label htmlFor="female">Female</label>
+    <label htmlFor="female">Fe male</label>
   </div> */}
           <div className="form-group">
             <label htmlFor="email">Email: </label>
@@ -122,12 +122,12 @@ class Form extends Component {
             />
           </div>
           <div className="form-group">
-            <label htmlFor="comment">Enter your Comment: </label>
+            <div><label > Comment: </label></div>
             <textarea
               name="comment"
               id="comment"
-              cols="30"
-              rows="10"
+              
+              rows="8"
               placeholder="write something ...."
               value={this.state.comment}
               onChange={(e) => this.setState({ comment: e.target.value })}
