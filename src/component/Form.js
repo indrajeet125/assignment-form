@@ -9,25 +9,7 @@ class Form extends Component {
     email: "",
     comment: "",
   };
-
-  add = (e) => {
-    e.preventDefault();
-    if (this.state.salutation === "" || this.state.salutation === "No.selected") {
-      alert("please select Mr. or Miss.");
-      return;
-    }
-    if (this.state.fname === null || this.state.fname === "") {
-      alert("Please Enter first name ");
-      return false;
-    } else if (this.state.fname.length > 30 || this.state.lname.length > 30) {
-      alert("First Name should be no more than 30 characters");
-      return false;
-    } else if (this.state.lname.length > 30) {
-      alert("Last Name should be no more than 30 characters");
-      return false;
-    }
-
-    this.props.addcommenthandler(this.state);
+  clearAll = () => {
     this.setState({
       salutation: "",
       fname: "",
@@ -37,6 +19,33 @@ class Form extends Component {
       comment: "",
     });
   };
+  // inputHandler=(e)=>{
+  //   this.setState
+
+  // }
+  Validate= (e) => {
+    e.preventDefault();
+    // if (
+    //   this.state.salutation === "" ||
+    //   this.state.salutation === "No.selected"
+    // ) {
+    //   alert("please select Mr. or Miss.");
+    //   return;
+    // }
+    // if (this.state.fname === null || this.state.fname === "") {
+    //   alert("Please Enter first name ");
+    //   return false;
+    // } else if (this.state.fname.length > 30 || this.state.lname.length > 30) {
+    //   alert("First Name should be no more than 30 characters");
+    //   return false;
+    // } else if (this.state.lname.length > 30) {
+    //   alert("Last Name should be no more than 30 characters");
+    //   return false;
+    // }
+
+    this.props.addcommenthandler(this.state);
+    this.clearAll();
+  };
   render() {
     return (
       <>
@@ -44,10 +53,9 @@ class Form extends Component {
           className="feedback"
           method="get"
           name="myform"
-          onSubmit={this.add}
+          onSubmit={this.Validate}
         >
-          <h2 className="form-heading"> Please Fill Feedback Form </h2>
-
+          <h2 className="form-heading"> Please Fill Feedback Form </h2>  
           <div className="form-group">
             <label htmlFor="salutation"> select</label>
             <select
@@ -58,7 +66,7 @@ class Form extends Component {
             >
               <option>{"No.selected"}</option>
               <option>{" Mr."}</option>
-              <option>{"Miss. "}</option>
+              <option>{"Mrs. "}</option>
             </select>
           </div>
 
@@ -100,7 +108,7 @@ class Form extends Component {
     <input type="radio" name="gender" value="mr" id="male" />
     <label htmlFor="male">Male</label>
     <input type="radio" value="miss" name="gender" id="female" />
-    <label htmlFor="female">Female</label>
+    <label htmlFor="female">Fe male</label>
   </div> */}
           <div className="form-group">
             <label htmlFor="email">Email: </label>
@@ -114,12 +122,12 @@ class Form extends Component {
             />
           </div>
           <div className="form-group">
-            <label htmlFor="comment">Enter your Comment: </label>
+            <div><label > Comment: </label></div>
             <textarea
               name="comment"
               id="comment"
-              cols="30"
-              rows="10"
+              
+              rows="8"
               placeholder="write something ...."
               value={this.state.comment}
               onChange={(e) => this.setState({ comment: e.target.value })}
