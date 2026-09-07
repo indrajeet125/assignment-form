@@ -49,7 +49,7 @@ The app uses the `/Comments` JSON Server resource for reading, creating, and del
 
 The configured GitHub Pages homepage is:
 
-<https://indrajeet420.github.io/assignment-form>
+<https://indrajeet125.github.io/assignment-form>
 
 Run the following command to deploy:
 
