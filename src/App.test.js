@@ -1,8 +1,16 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+jest.mock('./API/Comment', () => ({
+  __esModule: true,
+  default: {
+    get: () => Promise.resolve({ data: [] }),
+    post: jest.fn(),
+    delete: jest.fn(),
+  },
+}));
+
+test('renders the feedback form', async () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  expect(await screen.findByRole('heading', { name: 'Feedback Form' })).toBeInTheDocument();
 });
