@@ -1,6 +1,8 @@
 # Feedback Form
 
-A React feedback form that stores comments in a local JSON Server API. Users can submit feedback, view the latest five comments, and delete comments.
+> A polished React feedback board for collecting, searching, and managing community comments.
+
+Turn quick thoughts into useful improvements. The app gives people a simple way to submit feedback, browse the latest five comments, search existing notes, and remove outdated entries through a local JSON Server API.
 
 ## Requirements
 
