@@ -7,18 +7,17 @@ const ShowComment = (props) => {
 
   let rendercomments = props.comments.map((comment) => {
     return (
-      <>
+      <div key={comment.id}>
         <Display
           comment={comment}
           deletecomment={deletecomment}
-          // key={comment.id}
         />
-      </>
+      </div>
     );
   });
   if (rendercomments.length >= 5) rendercomments = rendercomments.slice(-5);
-  else if(rendercomments.length<=0) 
-  rendercomments=<h1>Comment list empty</h1>
+  else if (rendercomments.length <= 0)
+    rendercomments = <p className="empty-state">No matching feedback yet.</p>;
 
   return (
     <>

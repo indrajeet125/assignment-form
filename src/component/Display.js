@@ -4,32 +4,27 @@ const Display = (props) => {
   const { id, salutation, fname, lname, comment } = props.comment;
   return (
     <>
-      <div className="comment">
-        <h3 style={{ color: "black" }}>
+      <article className="comment">
+        <h3>
           {salutation}
           {fname}
           {lname}{" "}
         </h3>
         <textarea
           value={comment}
-          style={{ fontSize: "18px", width: "80%" }}
+          readOnly
+          aria-label="Comment text"
         ></textarea>
         
         <button
           className="delete"
-          style={{
-            color: "red",
-            padding: "1px",
-            backgroundColor: "black",
-            borderRadius: "8px",
-          }}
-          onClick={(e) => props.deletecomment(id)}
+          type="button"
+          onClick={() => props.deletecomment(id)}
         >
-          delete
+          Delete
         </button>
         <hr></hr>
-        <p> {console.log(props.comment)}</p>
-      </div>
+      </article>
     </>
   );
 };
